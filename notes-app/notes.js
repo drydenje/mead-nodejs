@@ -1,5 +1,5 @@
 const getNotes = () => {
-  return "Your notes...\n";
+  return "Your notes...";
 };
 
 module.exports = getNotes;
