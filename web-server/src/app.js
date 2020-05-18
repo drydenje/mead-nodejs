@@ -1,27 +1,16 @@
+const path = require("path");
 const express = require("express");
 
 const app = express();
+const publicDirectoryPath = path.join(__dirname, "../public");
 
-app.get("/", (req, res) => {
-  res.send("HELLO");
-});
+app.use(express.static(publicDirectoryPath));
+app.use(express.static(path.join(publicDirectoryPath, "/help.html")));
 
-app.get("/help", (req, res) => {
-  res.send([
-    {
-      name: "Andrew",
-      age: 27,
-    },
-    {
-      name: "Sarah",
-      age: 29,
-    },
-  ]);
-});
-
-app.get("/about", (req, res) => {
-  res.send("<h1>About Page</h1>");
-});
+// This won't run because of the publicDirectoryPath
+// app.get("/", (req, res) => {
+//   res.send("HELLO");
+// });
 
 app.get("/weather", (req, res) => {
   const weatherResponse = {
