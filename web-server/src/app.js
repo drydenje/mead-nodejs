@@ -7,15 +7,29 @@ app.get("/", (req, res) => {
 });
 
 app.get("/help", (req, res) => {
-  res.send("Help Page");
+  res.send([
+    {
+      name: "Andrew",
+      age: 27,
+    },
+    {
+      name: "Sarah",
+      age: 29,
+    },
+  ]);
 });
 
 app.get("/about", (req, res) => {
-  res.send("About Page");
+  res.send("<h1>About Page</h1>");
 });
 
 app.get("/weather", (req, res) => {
-  res.send("Weather Page");
+  const weatherResponse = {
+    location: "Chicago",
+    temperature: 48,
+  };
+
+  res.send(weatherResponse);
 });
 
 app.listen(3000, () => {
