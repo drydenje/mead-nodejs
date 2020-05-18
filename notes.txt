@@ -1,0 +1,5 @@
+undo 'git add' before commit
+git reset 
+
+undo commit and unstage all files
+git reset HEAD~
