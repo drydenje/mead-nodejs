@@ -163,11 +163,9 @@ input::-moz-focus-inner {
 }
 
 h1 {
-  colour: white;
-  background-color: skyblue;
+  color: grey;
 }
 
 img {
   width: 250px;
-  /* height: 100vw; */
 }

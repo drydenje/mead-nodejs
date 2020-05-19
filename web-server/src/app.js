@@ -4,13 +4,29 @@ const express = require("express");
 const app = express();
 const publicDirectoryPath = path.join(__dirname, "../public");
 
+app.set("view engine", "hbs");
 app.use(express.static(publicDirectoryPath));
-app.use(express.static(path.join(publicDirectoryPath, "/help.html")));
 
-// This won't run because of the publicDirectoryPath
-// app.get("/", (req, res) => {
-//   res.send("HELLO");
-// });
+app.get("/", (req, res) => {
+  res.render("index", {
+    title: "Weather",
+    name: "Andrew Mead",
+  });
+});
+
+app.get("/about", (req, res) => {
+  res.render("about", {
+    title: "About Me",
+    name: "Andrew Mead",
+  });
+});
+
+app.get("/help", (req, res) => {
+  res.render("help", {
+    title: "Help",
+    message: "Here are some helpful suggestions",
+  });
+});
 
 app.get("/weather", (req, res) => {
   const weatherResponse = {
