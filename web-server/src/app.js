@@ -48,6 +48,23 @@ app.get("/weather", (req, res) => {
   res.send(weatherResponse);
 });
 
+app.get("/help/*", (req, res) => {
+  res.render("404", {
+    title: "Help Page not found",
+    message: "The requested Help page does not exist",
+    name: "Andrew Mead",
+  });
+});
+
+// looks for wildcard to display 404 page, make sure this is the last one
+app.get("*", (req, res) => {
+  res.render("404", {
+    title: "Page not found",
+    message: "The requested resource does not exist.",
+    name: "Andrew Mead",
+  });
+});
+
 app.listen(3000, () => {
   console.log("Server is running");
 });
